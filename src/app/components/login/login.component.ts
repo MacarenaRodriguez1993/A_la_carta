@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { TokenService } from 'src/app/service/token.service';
+import { HttpClient } from '@angular/common/http';
+import { loginI } from 'src/app/service/models/login.interface';
 
 @Component({
   selector: 'app-login',
@@ -14,8 +17,9 @@ export class LoginComponent implements OnInit {
       password:new FormControl('')
     }
   );
+  usuario:loginI[] =[];
   constructor(
-    private builder:FormBuilder
+    private builder:FormBuilder,private tok:TokenService
   ) {
     this.formulario=this.builder.group({
       email:['',Validators.email],
@@ -27,8 +31,13 @@ export class LoginComponent implements OnInit {
     
   }
 
-  onSubmit(){
-    console.log(this.formulario.value);
-  }
+ public onSubmit(){
+  const url='http://challenge-react.alkemy.org/'
+  const usuario={email:this.formulario.value.email, password:this.formulario.value.password}
+    console.log((usuario))
+    this.tok.login(url,usuario).subscribe(res=>{
+      console.log(res)
+    });
+ }
   
 }
