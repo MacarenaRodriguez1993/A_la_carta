@@ -34,7 +34,6 @@ export class LoginComponent implements OnInit {
  public onSubmit(){
   const url='http://challenge-react.alkemy.org/'
   const usuario={email:this.formulario.value.email, password:this.formulario.value.password}
-    console.log((usuario))
     this.tok.login(url,usuario).subscribe(res=>{
       console.log(res)
     });

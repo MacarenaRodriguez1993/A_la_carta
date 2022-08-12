@@ -10,8 +10,6 @@ export class TokenService {
   constructor(private http:HttpClient) { }
 
   login(url:string,user:object){
-    console.log(url)
-    console.log(user)
     return this.http.post(url,user);
   }
 }
