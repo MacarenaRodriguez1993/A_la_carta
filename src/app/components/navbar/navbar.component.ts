@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { TokenService } from 'src/app/service/token.service';
 
 @Component({
   selector: 'app-navbar',
@@ -7,13 +8,26 @@ import { Router } from '@angular/router';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-
-  constructor(private router:Router) { }
+  
+  isLogged=false;
+  constructor(private router:Router, private tok:TokenService) { }
+  
 
   ngOnInit(): void {
+    if(this.tok.getToken()){
+      this.isLogged=true;
+    }else{
+      this.isLogged=false;
+    }
   }
+
 
   irLogin(){
     this.router.navigate(['login']);
   }
+  irLogout():void{
+    this.tok.logOut();
+    location.reload();
+  }
+ 
 }
