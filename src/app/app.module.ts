@@ -8,6 +8,9 @@ import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,7 +22,9 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+   
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
