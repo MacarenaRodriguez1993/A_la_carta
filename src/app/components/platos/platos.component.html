@@ -1,0 +1,17 @@
+<h1>Menu Semanal</h1>
+<ul *ngFor="let datos of data">
+    <li>
+        <h1>{{datos.title}}</h1>
+        <img src="{{datos.imagen}}" alt="">
+        <div class="character">
+            Tipo de platos: {{datos.tipo_de_plato}}<br>
+            Dieta: {{datos.dieta}}<br>
+            Saludable-nivel:{{datos.saludable}}<br>
+            Precio: ${{datos.precio}}<br>
+            Tiempo de preparacion: {{datos.tiempo}}min<br>
+        </div>
+        <button class="btn btn-primary">Ver detalles</button>
+        <button class="btn btn-danger">Eliminar</button>
+    </li>
+   
+</ul>
