@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiServiceService } from 'src/app/service/api-service.service';
+import { TokenService } from 'src/app/service/token.service';
 
 @Component({
   selector: 'app-platos',
@@ -10,15 +11,21 @@ export class PlatosComponent implements OnInit {
   
   resumen: any;
   data:any[]=[];
-  constructor(private api:ApiServiceService) { }
+
+  isLogged=false;
+
+  constructor(private api:ApiServiceService,private tok:TokenService) { }
 
   ngOnInit(): void {
     this.receta();
+    if(this.tok.getToken()){
+      this.isLogged=true;
+    }
   }
 
 
   receta(){
-    let id=[716429, 716432,716425,716426];
+    let id=[716431, 716432,716425,716426];
     let datos;
     for(let i=0; i<4;i++){
       this.api.traerReceta(id[i]).subscribe(
