@@ -2,7 +2,7 @@
 ul{
     list-style: none;
     border: 2px solid #D1512D;
-    width: 400px;
+    width: 22.5%;
     text-align: center;
     margin-top: 60px ;
     margin-inline: auto;
@@ -20,4 +20,8 @@ li button{
     margin: 3px;
     border-radius: 5px;
     
+}
+.platos{
+    display: flex;
+    justify-content: space-around;
 }

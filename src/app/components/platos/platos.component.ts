@@ -9,6 +9,9 @@ import { TokenService } from 'src/app/service/token.service';
 })
 export class PlatosComponent implements OnInit {
   
+  /*Para ejemplo sin api*/
+  numeros:number[]=[1,2,3,4];
+
   resumen: any;
   data:any[]=[];
 
