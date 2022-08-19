@@ -8,6 +8,7 @@ import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { PlatosComponent } from './components/platos/platos.component';
+import { BuscarPlatosComponent } from './components/buscar-platos/buscar-platos.component';
 
 
 
@@ -18,7 +19,8 @@ import { PlatosComponent } from './components/platos/platos.component';
     HomeComponent,
     LoginComponent,
     NavbarComponent,
-    PlatosComponent
+    PlatosComponent,
+    BuscarPlatosComponent
   ],
   imports: [
     BrowserModule,

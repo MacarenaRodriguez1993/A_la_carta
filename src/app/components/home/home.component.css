@@ -1,0 +1,21 @@
+.titulo{
+    text-align: center;
+    margin-bottom: 10px;
+    padding: 5px;
+}.platos{
+    display: flex;
+    justify-content: center;
+}
+.busqueda{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.caracteristicas{
+    display: block;
+    justify-content: center;
+}
+
+app-platos{
+    margin: auto;
+}

@@ -17,7 +17,8 @@ export class PlatosComponent implements OnInit {
   constructor(private api:ApiServiceService,private tok:TokenService) { }
 
   ngOnInit(): void {
-    this.receta();
+
+    //this.receta();
     if(this.tok.getToken()){
       this.isLogged=true;
     }
