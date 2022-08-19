@@ -9,7 +9,7 @@
                 <input type="text" formControlName="email" placeholder="Enter Email">
             </div>
             
-            <div *ngIf="this.formulario.get('email')?.errors?.['required']">
+            <div  class="text" *ngIf="this.formulario.get('email')?.errors?.['required']">
                 Es necesario ingresar un password
             </div>
         
@@ -19,7 +19,7 @@
                   </svg></span>
                 <input type="password" formControlName="password" class="pass-key" placeholder="Password">
             </div>
-            <div *ngIf="formulario.controls['password'].invalid">
+            <div class="text" *ngIf="formulario.controls['password'].invalid">
                 Es necesario ingresar un password
             </div>
             <div class="field-boton">

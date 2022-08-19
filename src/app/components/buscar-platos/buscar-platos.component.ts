@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { map, Observable, startWith } from 'rxjs';
+import { TokenService } from 'src/app/service/token.service';
 
 @Component({
   selector: 'app-buscar-platos',
@@ -10,10 +11,12 @@ import { map, Observable, startWith } from 'rxjs';
 export class BuscarPlatosComponent implements OnInit {
 
   countries:string[]=['españa','argentina', 'brasil','ecuador','italia'];
-
-  constructor() { }
+  isLogged=false;
+  constructor(private tok:TokenService) { }
   ngOnInit(): void {
-  
+    if(this.tok.getToken()){
+      this.isLogged=true;
+    }
   }
 /*
   control=new FormControl();

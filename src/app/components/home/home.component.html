@@ -2,7 +2,7 @@
 <h1 class="titulo">Menu Semanal</h1>
 <div class="busqueda">
     <app-buscar-platos></app-buscar-platos>
-    <div class="caracteristicas">
+    <div *ngIf="isLogged" class="caracteristicas">
         <h4>Precio acumulado del menu =</h4>
         <h4>Tiempo de preparacion total =</h4>
         <h4>Promedio  Healt Score =</h4>
