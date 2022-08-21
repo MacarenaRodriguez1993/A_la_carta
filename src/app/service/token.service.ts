@@ -20,7 +20,15 @@ export class TokenService {
   public getToken():string{
     return localStorage.getItem(TOKEN_KEY)!;
   }
-  
+  public hayToken(){
+    const token=this.getToken();
+    if(token==null){ 
+      return false;
+    }else {
+      return true;
+    }
+
+  }
   public logOut():void{
     localStorage.clear();
   }

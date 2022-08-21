@@ -19,6 +19,11 @@
     justify-content: center;
 }
 
-app-platos{
-    margin: auto;
+button{
+    width: 350px;
+    background-color: #411530;
+    color:aliceblue;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #D1512D;
 }

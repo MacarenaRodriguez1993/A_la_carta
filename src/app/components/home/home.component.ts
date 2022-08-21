@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { TokenService } from 'src/app/service/token.service';
 
 @Component({
@@ -8,7 +9,7 @@ import { TokenService } from 'src/app/service/token.service';
 })
 export class HomeComponent implements OnInit {
   isLogged=false
-  constructor(private tok:TokenService) { }
+  constructor(private tok:TokenService, private router:Router) { }
 
   ngOnInit(): void {
     if(this.tok.getToken()){
@@ -16,5 +17,9 @@ export class HomeComponent implements OnInit {
     }else{
       this.isLogged=false;
     }
+  }
+
+  agregarPlato(){
+    this.router.navigate(['agregar']);
   }
 }

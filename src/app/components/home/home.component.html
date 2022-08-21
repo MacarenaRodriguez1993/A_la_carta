@@ -1,15 +1,17 @@
 <app-navbar></app-navbar>
 <h1 class="titulo">Menu Semanal</h1>
 <div class="busqueda">
-    <app-buscar-platos></app-buscar-platos>
+    <button *ngIf="isLogged" (click)="agregarPlato()">
+        <h3><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-plus-square-fill" viewBox="0 0 16 16">
+            <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z"/>
+        </svg>  Agregar un plato</h3>  
+    </button>
     <div *ngIf="isLogged" class="caracteristicas">
         <h4>Precio acumulado del menu =</h4>
         <h4>Tiempo de preparacion total =</h4>
         <h4>Promedio  Healt Score =</h4>
         <h5>Cantidad de platos vegano en el menu=</h5>
     </div>
-
 </div>
-
-    <app-platos></app-platos>
+<app-platos></app-platos>
 

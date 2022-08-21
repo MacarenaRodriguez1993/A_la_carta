@@ -39,10 +39,10 @@ export class PlatosComponent implements OnInit {
             title:data.title,
             imagen:data.image,
             dieta:data.diets,
-            saludable:data.healthScore,
-            precio:data.pricePerServing,
+            //saludable:data.healthScore,
+            //precio:data.pricePerServing,
             tipo_de_plato:data.dishTypes,
-            tiempo:data.readyInMinutes
+            //tiempo:data.readyInMinutes
           }
           this.data.push(datos);
         })
@@ -59,7 +59,5 @@ export class PlatosComponent implements OnInit {
     }  
   }
 
-  id(num:number){
-    
-  }
+
 }

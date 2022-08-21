@@ -1,8 +1,34 @@
-button{
-    width: 350px;
-    background-color: #411530;
-    color:aliceblue;
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #D1512D;
+*{
+    color: aliceblue;
+    padding: 0;
+    margin: 0;
 }
+img{
+    width: 80%;
+    padding: 20px;
+}
+
+button{
+    padding: 12px;
+}
+li{
+    text-align: center;
+    width: 500px;
+    height: 420px;
+    list-style: none;
+    border: 2px solid #D1512D;
+    padding: 10px;
+    margin: auto;
+    margin-bottom: 10px;
+}
+.formulario{
+    text-align: center;
+}
+.formulario input{
+    width: 300px;
+    height: 60px;
+    margin:20px ;
+    color: black;
+}
+
+

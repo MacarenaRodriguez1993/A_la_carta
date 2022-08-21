@@ -43,7 +43,7 @@ export class LoginComponent implements OnInit {
   const usuario={email:this.formulario.value.email, password:this.formulario.value.password}
     this.loading=true;
     this.tok.login(url,usuario).subscribe(res=>{
-      console.log(res);
+    
       if(res!=''){
         /*
         sessionStorage.removeItem(token_key);

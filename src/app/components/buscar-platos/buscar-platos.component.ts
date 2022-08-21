@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { map, Observable, startWith } from 'rxjs';
+import { debounceTime,filter,map,Observable,tap} from 'rxjs';
+import { ApiServiceService } from 'src/app/service/api-service.service';
 import { TokenService } from 'src/app/service/token.service';
 
 @Component({
@@ -9,14 +10,23 @@ import { TokenService } from 'src/app/service/token.service';
   styleUrls: ['./buscar-platos.component.css']
 })
 export class BuscarPlatosComponent implements OnInit {
+  isLogged=false;
+  datos:any[]=[];
+  data:any[]=[];
+
+
+  inputBusqueda= new FormControl('');
 
   countries:string[]=['españa','argentina', 'brasil','ecuador','italia'];
-  isLogged=false;
-  constructor(private tok:TokenService) { }
+
+  constructor(private tok:TokenService, private api:ApiServiceService) { }
+
+
   ngOnInit(): void {
     if(this.tok.getToken()){
       this.isLogged=true;
     }
+    this.buscar();
   }
 /*
   control=new FormControl();
@@ -45,6 +55,41 @@ export class BuscarPlatosComponent implements OnInit {
     this.debounceTimer=setTimeout(()=>{
       console.log(query)
     },600);
+  }
+
+
+  buscar(){
+
+   this.inputBusqueda.valueChanges
+    .pipe(
+      debounceTime(350),
+      filter((search:string)=> search.length >2)
+    )
+    .subscribe(
+      (search:string) => 
+       this.api.buscarRecetas(search).subscribe(search=>{
+        this.datos=search;  
+        console.log(search)
+        })
+    );
+  }
+
+
+  agregar(index:number){
+    let datos;
+    this.api.traerReceta(index).subscribe(data =>{
+      datos={
+        title:data.title,
+        imagen:data.image,
+        dieta:data.diets,
+        //saludable:data.healthScore,
+        //precio:data.pricePerServing,
+        tipo_de_plato:data.dishTypes,
+        //tiempo:data.readyInMinutes
+      }
+      this.data.push(datos);
+    })
+    console.log(this.data);
   }
 
 }
