@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { ApiServiceService } from 'src/app/service/api-service.service';
 import { TokenService } from 'src/app/service/token.service';
@@ -13,6 +13,7 @@ export class HomeComponent implements OnInit {
   resumen: any;
   data:any[]=[];
  
+  @Output() buscarreceta = new EventEmitter();
   constructor(private api:ApiServiceService,private tok:TokenService,private router:Router) { }
   numeros:number[]=[1,2,3,4];
 
@@ -22,7 +23,7 @@ export class HomeComponent implements OnInit {
     }else{
       this.isLogged=false;
     }
-    this.receta();
+    //this.receta();
   }
   receta(){
     let id=[716431, 716432,716425,716426];

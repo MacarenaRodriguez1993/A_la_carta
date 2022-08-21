@@ -26,15 +26,5 @@ export class PlatosComponent implements OnInit {
   BorrarPlato(id:number){
     this.borrar.emit(id)
   }
-/* 
 
-  eliminar(num:number){
-    for(let i=0;i<this.numeros.length;i++){
-      if(this.numeros[i]==num){
-        this.numeros.splice(i,1);
-      }
-    }  
-  }
-
-*/
 }

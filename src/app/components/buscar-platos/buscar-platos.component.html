@@ -5,6 +5,7 @@
     <ul *ngFor="let platos of datos">
         <li>
             <h4>{{platos.title}}</h4>
+            <p>{{platos.id}}</p>
             <img src="{{platos.image}}" alt="">
             <button class="btn btn-success" (click)="agregar(platos.id)">Agregar al menu</button>
         </li>
