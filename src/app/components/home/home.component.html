@@ -13,5 +13,8 @@
         <h5>Cantidad de platos vegano en el menu=</h5>
     </div>
 </div>
-<app-platos></app-platos>
+<div class="platos">
+    <app-platos [data]="platos" (borrar)="borrarPlato($event)" *ngFor="let platos of data"></app-platos>
+</div>
+
 

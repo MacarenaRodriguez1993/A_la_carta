@@ -27,3 +27,14 @@ button{
     border-radius: 5px;
     border: 1px solid #D1512D;
 }
+.platos{
+    width: auto;
+    height: auto;
+}
+app-platos{
+    display: flex;
+    justify-content: space-around;
+    width: auto;
+    height: auto;
+}
+
