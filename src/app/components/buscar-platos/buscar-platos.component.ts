@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
 import { debounceTime,filter,map,Observable,tap} from 'rxjs';
 import { ApiServiceService } from 'src/app/service/api-service.service';
 import { TokenService } from 'src/app/service/token.service';
@@ -19,7 +20,7 @@ export class BuscarPlatosComponent implements OnInit {
 
   countries:string[]=['españa','argentina', 'brasil','ecuador','italia'];
 
-  constructor(private tok:TokenService, private api:ApiServiceService) { }
+  constructor(private tok:TokenService, private api:ApiServiceService,private router:Router) { }
 
 
   ngOnInit(): void {
@@ -57,9 +58,8 @@ export class BuscarPlatosComponent implements OnInit {
     },600);
   }
 
-
+//buscar plato por nombre 
   buscar(){
-
    this.inputBusqueda.valueChanges
     .pipe(
       debounceTime(350),
@@ -76,6 +76,9 @@ export class BuscarPlatosComponent implements OnInit {
 
 
   agregar(index:number){
+    this.router.navigate(['home',index]);
+    
+    /*
     let datos;
     this.api.traerReceta(index).subscribe(data =>{
       datos={
@@ -90,6 +93,6 @@ export class BuscarPlatosComponent implements OnInit {
       this.data.push(datos);
     })
     console.log(this.data);
-  }
-
+  }*/
+}
 }

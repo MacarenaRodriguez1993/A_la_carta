@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ApiServiceService } from 'src/app/service/api-service.service';
 import { TokenService } from 'src/app/service/token.service';
 
@@ -13,9 +13,16 @@ export class HomeComponent implements OnInit {
   resumen: any;
   data:any[]=[];
  
-  @Output() buscarreceta = new EventEmitter();
-  constructor(private api:ApiServiceService,private tok:TokenService,private router:Router) { }
-  numeros:number[]=[1,2,3,4];
+  @Output() buscarReceta = new EventEmitter<number>();
+  constructor(private api:ApiServiceService,private tok:TokenService,private router:Router,
+    private Actived:ActivatedRoute) { 
+      this.Actived.params.subscribe(
+        params=>{
+          this.receta(params['index']);
+        }
+      );
+    }
+
 
   ngOnInit(): void {
     if(this.tok.getToken()){
@@ -23,14 +30,11 @@ export class HomeComponent implements OnInit {
     }else{
       this.isLogged=false;
     }
-    //this.receta();
+
   }
-  receta(){
-    let id=[716431, 716432,716425,716426];
+  receta(id:number){
     let datos;
-    for(let i=0; i<4;i++){
-      this.api.traerReceta(id[i]).subscribe(
-        
+      this.api.traerReceta(id).subscribe(
         data=>{
           datos={
             id:data.id,
@@ -40,11 +44,10 @@ export class HomeComponent implements OnInit {
             tipo_de_plato:data.dishTypes,
           }
           this.data.push(datos);
-        })
-        
-
-    }
+        }
+      )
   }
+
   borrarPlato(id:number){
     this.data=this.data.filter(data=> data.id!=id)
   }

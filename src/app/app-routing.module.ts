@@ -7,7 +7,7 @@ import { VigilanteGuard } from './vigilante.guard';
 
 const routes: Routes = [
   {path:'home', component: HomeComponent},
-  {path:'login',component: LoginComponent},
+  {path:'login/:id',component: LoginComponent},
   {path:'agregar',component: BuscarPlatosComponent, canActivate:[VigilanteGuard]},
   {path:'',redirectTo:'home',pathMatch:'full'}
 ];
