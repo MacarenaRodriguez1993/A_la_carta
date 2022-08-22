@@ -20,12 +20,12 @@ export interface respuesta{
 })
 export class ApiServiceService {
   url1='https://api.spoonacular.com/recipes/'
-  url2='/information?apiKey=86a2419f613e432bb97a416e9e00e9bf&includeNutrition=false';
+  url2='/information?&includeNutrition=false&';
   apikey='apiKey=86a2419f613e432bb97a416e9e00e9bf'
   constructor(private http:HttpClient) { }
 
   public traerReceta(index:number){
-    return this.http.get<any>(this.url1+index+this.url2);
+    return this.http.get<any>(this.url1+index+this.url2+this.apikey);
   }
 
   public buscarRecetas(receta:string):Observable<respuesta[]>{

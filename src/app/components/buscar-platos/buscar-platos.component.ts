@@ -76,9 +76,7 @@ export class BuscarPlatosComponent implements OnInit {
 
 
   agregar(index:number){
-    this.router.navigate(['home',index]);
-    
-    /*
+
     let datos;
     this.api.traerReceta(index).subscribe(data =>{
       datos={
@@ -93,6 +91,6 @@ export class BuscarPlatosComponent implements OnInit {
       this.data.push(datos);
     })
     console.log(this.data);
-  }*/
+  }
 }
-}
+
